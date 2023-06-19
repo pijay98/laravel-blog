@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\User\UserRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -28,7 +29,7 @@ class UserController extends Controller
         return view('backpanel.users.create')->with('roles', $this->roles);
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $users = new User;
         $users->name = $request->name;
