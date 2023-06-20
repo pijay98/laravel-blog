@@ -49,10 +49,10 @@
               <p>Users</p>
             </a>
           </li>
-          <li>
-            <a href="./map.html">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Maps</p>
+          <li class="nav-item {{ Request::is('back/role')?'active': ' ' }} ">
+            <a href="{{route('role.index')}}">
+              <i class="material-symbols-outlined">family_restroom</i>
+              <p>Roles</p>
             </a>
           </li>
           <li>

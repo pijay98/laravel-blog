@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\RoleController;
+
 
 
 
@@ -33,6 +35,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('back', [AdminController::class, 'index'])->name('back.dashboard');
+// Route::resource('back/user', UserController::class);
 Route::get('back/users', [UserController::class, 'ins'])->name('user.index');
 Route::get('back/users/create', [UserController::class, 'create'])->name('user.create');
 Route::post('back/users/store', [UserController::class, 'store'])->name('user.store');
@@ -40,6 +43,4 @@ Route::get('back/users/edit/{id}', [UserController::class, 'edit'])->name('user.
 Route::post('back/users/update/{id}', [UserController::class, 'update'])->name('user.update');
 Route::get('back/users/del/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
-
-
-require __DIR__ . '/auth.php';
+Route::resource('back/role', RoleController::class);
