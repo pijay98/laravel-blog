@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\RoleController;
+use App\Http\Controllers\User\PermissionController;
+
 
 
 
@@ -44,3 +46,5 @@ Route::post('back/users/update/{id}', [UserController::class, 'update'])->name('
 Route::get('back/users/del/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
 Route::resource('back/role', RoleController::class);
+
+Route::resource('back/permission', PermissionController::class);

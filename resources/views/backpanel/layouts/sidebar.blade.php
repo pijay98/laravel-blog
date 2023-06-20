@@ -55,10 +55,10 @@
               <p>Roles</p>
             </a>
           </li>
-          <li>
-            <a href="./notifications.html">
+          <li class="nav-item {{ Request::is('back/permission')?'active': ' ' }} ">
+            <a href="{{route('permission.index')}}">
               <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Notifications</p>
+              <p>Permissions</p>
             </a>
           </li>
           <li>
