@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
 
 class RoleController extends Controller
 {
@@ -75,5 +77,19 @@ class RoleController extends Controller
         $roles->delete();
 
         return redirect(route('role.index'))->with('success', 'Role deleted successfully');
+    }
+
+    public function assignpermission(Role $role)
+    {
+
+        $permissions = Permission::all();
+        return view('backpanel.roles.assign-permission', compact('role', 'permissions'));
+    }
+
+    public function permissionstore(Request $request, Role $role)
+    {
+
+        $role->syncPermissions($request->permission);
+        return redirect(route('permission.index'))->with('success', 'Added Successfully');
     }
 }

@@ -45,6 +45,8 @@ Route::get('back/users/edit/{id}', [UserController::class, 'edit'])->name('user.
 Route::post('back/users/update/{id}', [UserController::class, 'update'])->name('user.update');
 Route::get('back/users/del/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
+Route::get('backpanel/role/assign-permission/{role}', [RoleController::class, 'assignpermission'])->name('role.assign.permission');
+Route::post('backpanel/role/assign-permission/{role}', [RoleController::class, 'permissionstore'])->name('role.store.permission');
 Route::resource('back/role', RoleController::class);
 
 Route::resource('back/permission', PermissionController::class);

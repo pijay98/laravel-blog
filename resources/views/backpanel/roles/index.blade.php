@@ -19,11 +19,17 @@
      
     <tr>
         <td style="padding-left:40px;">{{$role->name}}</td>
-        <td>
+        <td class="d-flex">
+            <div>
+        <a href="{{route('role.assign.permission',$role->id)}}" class="btn btn-success btn-sm rounded">
+        <i class="material-symbols-outlined">assignment_ind</i>
+        Assign Permission
+        </a>
         <a href="{{route('role.edit',$role->id)}}" class="btn btn-warning btn-sm rounded">
         <i class="material-symbols-outlined">edit</i>
         Edit
         </a>
+</div>
         <form action="{{route('role.destroy',$role->id)}}" method="post">
             @csrf
             @method('delete')

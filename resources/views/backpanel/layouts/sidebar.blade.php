@@ -57,7 +57,7 @@
           </li>
           <li class="nav-item {{ Request::is('back/permission')?'active': ' ' }} ">
             <a href="{{route('permission.index')}}">
-              <i class="now-ui-icons ui-1_bell-53"></i>
+              <i class="material-symbols-outlined">folder_supervised</i>
               <p>Permissions</p>
             </a>
           </li>
