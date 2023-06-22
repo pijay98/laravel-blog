@@ -43,6 +43,12 @@
               <p>Dashboard</p>
             </a>
           </li>
+          <li class="nav-item {{ Request::is('back/category')?'active': ' ' }} ">
+            <a href="{{route('category.index')}}">
+            <i class="material-symbols-outlined">all_inbox</i>
+              <p>Categories</p>
+            </a>
+          </li>
           <li class="nav-item {{ Request::is('back/users')?'active': ' ' }} ">
             <a href="{{route('user.index')}}">
             <i class="material-symbols-outlined">group</i>
@@ -59,12 +65,6 @@
             <a href="{{route('permission.index')}}">
               <i class="material-symbols-outlined">folder_supervised</i>
               <p>Permissions</p>
-            </a>
-          </li>
-          <li>
-            <a href="./user.html">
-              <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
             </a>
           </li>
           <li>

@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\RoleController;
 use App\Http\Controllers\User\PermissionController;
+use App\Http\Controllers\User\CategoryController;
+
 
 
 
@@ -50,3 +52,8 @@ Route::post('backpanel/role/assign-permission/{role}', [RoleController::class, '
 Route::resource('back/role', RoleController::class);
 
 Route::resource('back/permission', PermissionController::class);
+
+Route::get('back/category/trashed', [CategoryController::class, 'trashedCategory'])->name('category.trash');
+Route::post('back/category/restore/{category}', [CategoryController::class, 'restoreCategory'])->name('category.restore');
+Route::delete('back/category/delete/{category}', [CategoryController::class, 'forcedeleteCategory'])->name('category.force.delete');
+Route::resource('back/category', CategoryController::class);
