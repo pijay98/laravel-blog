@@ -68,9 +68,9 @@
             </a>
           </li>
           <li>
-            <a href="./tables.html">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
+            <a href="{{route('post.index')}}">
+              <i class="material-symbols-outlined">article</i>
+              <p>Posts</p>
             </a>
           </li>
           <li>

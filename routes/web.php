@@ -7,6 +7,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\RoleController;
 use App\Http\Controllers\User\PermissionController;
 use App\Http\Controllers\User\CategoryController;
+use App\Http\Controllers\User\PostController;
 
 
 
@@ -57,3 +58,8 @@ Route::get('back/category/trashed', [CategoryController::class, 'trashedCategory
 Route::post('back/category/restore/{category}', [CategoryController::class, 'restoreCategory'])->name('category.restore');
 Route::delete('back/category/delete/{category}', [CategoryController::class, 'forcedeleteCategory'])->name('category.force.delete');
 Route::resource('back/category', CategoryController::class);
+
+Route::get('back/post/trashed', [PostController::class, 'trashedPost'])->name('post.trash');
+Route::post('back/post/restore/{post}', [PostController::class, 'restorePost'])->name('post.restore');
+Route::delete('back/post/delete/{post}', [PostController::class, 'forcedeletePost'])->name('post.force.delete');
+Route::resource('back/post', PostController::class);
