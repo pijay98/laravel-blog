@@ -41,5 +41,12 @@
 <button class="btn btn-success rounded" type="submit" value="publish" name="status">Publish Post</button>
 </div>
 </form>
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+<script>
+ CKEDITOR.replace('content', {
+   filebrowserUploadUrl:"{{route('post.upload',['_token'=>csrf_token()])}}",
+   filebrowserUploadMethod:"form"
+ });
+ </script>
 
 

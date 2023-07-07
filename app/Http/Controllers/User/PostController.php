@@ -93,4 +93,22 @@ class PostController extends Controller
 
 
     }
+
+    public function uploadPhoto(Request $request)
+    {
+
+        $original_name = $request->upload->getClientOriginalName();
+        $filename_org = pathinfo($original_name, PATHINFO_FILENAME);
+        $ext = $request->upload->getClientOriginalExtension();
+        $filename = $filename_org . '_' . time() . '.' . $ext;
+        $request->upload->move(storage_path('app\public\blog\images'), $filename);
+        $CKEditorFuncNum = $request->input('CKEditorFuncNum');
+        $url = asset('storage/blog/images/' . $filename);
+        $message = "Photo Uploaded";
+
+        $res = "<script>window.parent.CKEditor.tools.callFunction($CKEditorFuncNum,'$url','$message')</script>";
+        @header("Content-Type:text/html; charset=utf-8");
+
+        echo $res;
+    }
 }

@@ -59,6 +59,7 @@ Route::post('back/category/restore/{category}', [CategoryController::class, 'res
 Route::delete('back/category/delete/{category}', [CategoryController::class, 'forcedeleteCategory'])->name('category.force.delete');
 Route::resource('back/category', CategoryController::class);
 
+Route::post('back/post/upload', [PostController::class, 'uploadPhoto'])->name('post.upload');
 Route::get('back/post/trashed', [PostController::class, 'trashedPost'])->name('post.trash');
 Route::post('back/post/restore/{post}', [PostController::class, 'restorePost'])->name('post.restore');
 Route::delete('back/post/delete/{post}', [PostController::class, 'forcedeletePost'])->name('post.force.delete');
