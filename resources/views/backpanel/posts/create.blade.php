@@ -1,4 +1,18 @@
 @include('backpanel.layouts.master')
+
+<style>
+        .form-file-group{
+                width:500px;
+                height:200px;
+                border:4px dashed #000;
+        }
+        .form-file-group p{
+                width:100%;
+                height:100%;
+                text-align:center;
+                line-height:170px;
+        }
+</style>
  
 <div style = "position:relative; left:40px; top:80px;">
     <a href="{{route('post.index')}}" class="btn btn-primary rounded">All Posts</a>
@@ -37,6 +51,14 @@
             @endforelse
 </select>
 </div>
+<div class="form-file-group">
+        <input type="file" name="feature_image" style="display:none;" id="file-upload" onchange="previewfile(this)">
+        <p onclick="document.getElementById('file-upload').click()">Drag your file here or click in this area to upload</p>
+</div>
+<div id="previewBox" style="display:none">
+<img src="" id="previewImg" width="500px" class="img-fluid">
+<i class="material-symbols-outlined" style="cursor:pointer" onclick="removePreview()">delete</i>
+</div>
 <button class="btn btn-primary rounded" type="submit" value="draft" name="status">Save Post</button>
 <button class="btn btn-success rounded" type="submit" value="publish" name="status">Publish Post</button>
 </div>
@@ -47,6 +69,27 @@
    filebrowserUploadUrl:"{{route('post.upload',['_token'=>csrf_token()])}}",
    filebrowserUploadMethod:"form"
  });
+
+ function previewfile(input){
+
+        let file=$("input[type=file]").get(0).files[0];
+        if(file){
+           let reader = new FileReader();
+           reader.onload = function (){
+                $("#previewImg").attr('src',reader.result);
+                $("#previewBox").css('display','block');
+           }
+          $(".form-file-group").css('display','none');
+          reader.readAsDataURL(file);
+        }
+ }
+ function removePreview(){
+
+        $("#previewImg").attr('src','');
+        $("#previewBox").css('display','none');
+        $(".form-file-group").css('display','block');
+
+ }
  </script>
 
 
